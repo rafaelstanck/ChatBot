@@ -1,5 +1,5 @@
 """Projeto ChatBot v1.0
-Robô para chat de atendimento ao cliente para uma empresa de delivery de lanches
+Robô para chat de atendimento ao cliente para uma empresa de delivery de lanches teste
 """
 nome = input(str('Digite seu nome: '))
 
