@@ -43,10 +43,19 @@ if resposta in pedido:
                   '7. X-Calabresa R$\n'
                   '8. X-Bacon R$\n'
                   '9. X-Coração R$\n'
-                  '10. X-Tudo R$\n')
+                  '10. X-Tudo R$')
             print(30* '-')
             print('PORÇÕES')
             print(30 * '-')
+            print('11. Batata Frita (Pequena / Média / Grande) R$\n'
+                  '12. Polenta Frita (Média / Grande) R$\n'
+                  '13. Aipim Frito (Médio/Grande) R$')
+            print(30 * '-')
+            print('BEBIDAS')
+            print(30 * '-')
+            print('18. Água Mineral 500ml (com ou sem gás) R$\n'
+                  '19. Lata 350ml (Coca-Cola, Guaraná, Fanta, Ice Tea')
+            resposta = str(input('Posso anotar o seu pedido? '))
 
 elif resposta in informacoes:
     print('Gostaria de saber qual o nosso horário de atendimento? ')
