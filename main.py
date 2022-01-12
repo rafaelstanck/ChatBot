@@ -1,64 +1,63 @@
 """Projeto ChatBot v1.0
 Robô para chat de atendimento ao cliente para uma empresa de delivery de lanches teste
 """
+from time import sleep
+
+
+def boasvindas():
+    sleep(3)
+    print(f'*** Olá {nome}! Seja bem vindo ao Batuta Lanches. ***\n'
+          f'Eu sou o ChatBot, seu robô de atendimento.')
+    return str(input('Como posso lhe ajudar?')).lower()
+
+
+def fazerpedido():
+    sleep(3)
+    print('É pra já!!!')
+    return str(input('Antes de fazer seu pedido, gostaria de ver nosso cardápio?'))
+
+
+def vercardapio():
+    print('CARDÁPIO')
+
+
+def pedirinformacoes():
+    print('Pedir informações')
+
+
+def sairdoatendimento():
+    print('Saindo do atendimento')
+
+
 nome = input(str('Digite seu nome: '))
-
-print(f'*** Olá {nome}! Seja bem vindo ao Batuta Lanches. ***\n'
-      f'Eu sou o ChatBot, seu robô de atendimento.')
-
-pergunta = input(str('Como posso lhe ajudar? ')).lower()
 
 pedido = ['pedido', 'pedir', 'solicitação', 'solicitacao', 'solicitar', 'comprar']
 informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto']
-areadeentrega = ['bairro', 'local', 'locais', 'onde']
 sair = ['sair']
 
-resposta = ''
+pergunta = boasvindas()
+pedir = ''
 
 for i in pedido:
     if i in pergunta:
-        resposta = i
+        pedir = True
 
 for i in informacoes:
     if i in pergunta:
-        resposta = i
+        pedirinformacoes = True
 
-if resposta in pedido:
-    print('Ok, vamos ao que interessa!')
-    pergunta = input(str('Gostaria de ver nosso cardápio? ')).lower()
-    cardapio = ['sim', 'por favor', 'porfavor', 'por gentiliza', 'gostaria']
+for i in sair:
+    if i in pergunta:
+        sairdoatendimento = True
 
-    for i in cardapio:
-        if i in pergunta:
-            print('Claro, vamos ao cardápio!!!')
-            print(30 * '-')
-            print('LANCHES')
-            print(30 * '-')
-            print('1. Misto Quente R$\n'
-                  '2. Queijo Quente R$\n'
-                  '3. Bauru R$\n'
-                  '4. X-Burguer R$\n'
-                  '5. X-Salada R$\n'
-                  '6. X-Egg R$\n'
-                  '7. X-Calabresa R$\n'
-                  '8. X-Bacon R$\n'
-                  '9. X-Coração R$\n'
-                  '10. X-Tudo R$')
-            print(30* '-')
-            print('PORÇÕES')
-            print(30 * '-')
-            print('11. Batata Frita (Pequena / Média / Grande) R$\n'
-                  '12. Polenta Frita (Média / Grande) R$\n'
-                  '13. Aipim Frito (Médio/Grande) R$')
-            print(30 * '-')
-            print('BEBIDAS')
-            print(30 * '-')
-            print('18. Água Mineral 500ml (com ou sem gás) R$\n'
-                  '19. Lata 350ml (Coca-Cola, Guaraná, Fanta, Ice Tea')
-            resposta = str(input('Posso anotar o seu pedido? '))
+if pedir:
+    resp = fazerpedido()
 
-elif resposta in informacoes:
-    print('Gostaria de saber qual o nosso horário de atendimento? ')
+elif pedirinformacoes:
+    pedirinformacoes()
+
+elif sairdoatendimento:
+    sairdoatendimento()
 
 else:
     print('Eu não entendi o que voce quis dizer. Vamos tentar novamente?')
