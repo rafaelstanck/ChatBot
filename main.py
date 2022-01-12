@@ -1,5 +1,5 @@
 """Projeto ChatBot v1.0
-Robô para chat de atendimento ao cliente para uma empresa de delivery de lanches teste
+Robô para chat de atendimento ao cliente para uma empresa de delivery de lanches
 """
 from time import sleep
 
