@@ -3,21 +3,25 @@ Robô para chat de atendimento ao cliente para uma empresa de delivery de lanche
 """
 from time import sleep
 
-
+# função para dar as boas vindas
 def boasvindas():
     nome = str(input('Digite seu nome: '))
     sleep(1)
     print(f'*** Olá {nome}! Seja bem vindo ao Batuta Lanches. ***\n'
           f'Eu sou o ChatBot, seu atendente virtual.')
-    sleep(1)
-    return str(input('Como posso lhe ajudar?')).lower()
 
 
+# função para iniciar o atendimento
 def iniciaratendimento():
+    boasvindas()
+    resposta = str(input('Como posso lhe ajudar?')).lower()
+
+    # listas com as palavras chaves para direcionar o atendimento.
     pedido = ['pedido', 'pedir', 'solicitação', 'solicitacao', 'solicitar', 'comprar']
     informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto']
     sair = ['sair']
-    boasvindas()
+    todas = pedido, informacoes, sair
+
 
 def fazerpedido():
     sleep(1)
