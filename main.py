@@ -5,14 +5,15 @@ from time import sleep
 
 
 def boasvindas():
-    sleep(3)
+    sleep(1)
     print(f'*** Olá {nome}! Seja bem vindo ao Batuta Lanches. ***\n'
-          f'Eu sou o ChatBot, seu robô de atendimento.')
+          f'Eu sou o ChatBot, seu atendente virtual.')
+    sleep(1)
     return str(input('Como posso lhe ajudar?')).lower()
 
 
 def fazerpedido():
-    sleep(3)
+    sleep(1)
     print('É pra já!!!')
     return str(input('Antes de fazer seu pedido, gostaria de ver nosso cardápio?'))
 
@@ -36,15 +37,16 @@ informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto']
 sair = ['sair']
 
 pergunta = boasvindas()
-pedir = ''
 
 for i in pedido:
     if i in pergunta:
         pedir = True
+        break
 
 for i in informacoes:
     if i in pergunta:
         pedirinformacoes = True
+        break
 
 for i in sair:
     if i in pergunta:
