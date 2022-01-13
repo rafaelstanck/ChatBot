@@ -14,14 +14,32 @@ def boasvindas():
 # função para iniciar o atendimento
 def iniciaratendimento():
     boasvindas()
-    resposta = str(input('Como posso lhe ajudar?')).lower()
+    solicitacao = str(input('Como posso lhe ajudar?')).lower()
 
     # listas com as palavras chaves para direcionar o atendimento.
-    pedido = ['pedido', 'pedir', 'solicitação', 'solicitacao', 'solicitar', 'comprar']
-    informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto']
-    sair = ['sair']
-    todas = pedido, informacoes, sair
+    chaves_pedido = ['pedido', 'pedir', 'solicitação', 'solicitacao', 'solicitar', 'comprar', 'comer', 'comida']
+    chaves_informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto']
+    chaves_sair = ['sair', 'engano', 'desisto', 'desistir']
+    chaves_todos = chaves_pedido, chaves_informacoes, chaves_sair
 
+    resposta = ''
+
+    # verifica se o cliente quer fazer um pedido
+    for i in chaves_pedido:
+        if i in solicitacao:
+            resposta = 'pedido'
+
+    # verifica se o cliente quer pedir informações
+    for i in chaves_informacoes:
+        if i in solicitacao:
+            resposta = 'informações'
+
+    # verifica se o cliente quer sair do atendimento
+    for i in chaves_sair:
+        if i in solicitacao:
+            resposta = 'sair'
+
+    print(resposta)
 
 def fazerpedido():
     sleep(1)
@@ -41,4 +59,4 @@ def sairdoatendimento():
     print('Saindo do atendimento')
 
 
-chat = iniciaratendimento()
+iniciaratendimento()
