@@ -18,11 +18,10 @@ def iniciaratendimento():
 
     # listas com as palavras chaves para direcionar o atendimento.
     chaves_pedido = ['pedido', 'pedir', 'solicitação', 'solicitacao', 'solicitar', 'comprar', 'comer', 'comida']
-    chaves_informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto']
+    chaves_informacoes = ['atendimento', 'horário', 'horario', 'atendendo', 'aberto', 'informações', 'informacoes']
     chaves_sair = ['sair', 'engano', 'desisto', 'desistir']
-    chaves_todos = chaves_pedido, chaves_informacoes, chaves_sair
 
-    while resposta not in chaves_todos:
+    while True:
 
         solicitacao = str(input('Como posso lhe ajudar?')).lower()
 
@@ -50,6 +49,7 @@ def iniciaratendimento():
             pedirinformacoes()
         elif resposta == 'sair':
             sairdoatendimento()
+            break
         else:
             print('Vamos tentar novamente.')
 
@@ -77,11 +77,17 @@ def vercardapio():
 
 
 def pedirinformacoes():
-    print('Pedir informações')
+    print('INFORMAÇÕES:\n'
+          '*** Atendemos de Terça a Domingo das 19h até as 23h\n'
+          '*** Pedidos acima de R$ 30,00 não tem taxa de entrega\n'
+          '*** No momento estamos entregando apenas no Bairro\n'
+          '*** Aceitamos pagamento no débito, crédito, pix e claro também em dinheiro, o pagamento é feito na entrega do'
+          ' seu pedido.')
+    print('Voltando ao atendimento.', end=' ')
 
 
 def sairdoatendimento():
-    print('Saindo do atendimento')
+    print('OBRIGADO e volte sempre!!!')
 
 
 iniciaratendimento()
