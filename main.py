@@ -1,8 +1,10 @@
 """Projeto ChatBot v1.0
 Robô para chat de atendimento ao cliente para uma empresa de delivery de lanches
 """
+import pandas as pd
 from time import sleep
 
+cardapio = pd.read_csv('./cardapio.csv')
 
 # função para dar as boas vindas
 def boasvindas():
@@ -68,6 +70,7 @@ def fazerpedido():
             mostra_cardapio = True
     if mostra_cardapio:
         print('CARDÁPIO')
+        print(cardapio.head())
     else:
         print('Faça o seu pedido')
 
