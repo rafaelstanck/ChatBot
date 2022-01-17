@@ -1,4 +1,8 @@
 """ Versão inicial do ChatBot"""
+import pandas as pd
+
+
+cardapio = pd.read_csv('./cardapio.csv')
 
 
 def boasvindas():
@@ -8,6 +12,7 @@ def boasvindas():
 
 
 def menuprincipal():
+    print(35 * '=')
     print('Escolha uma das opções abaixo:\n'
           '1- Pedido\n'
           '2- Informações\n'
@@ -35,16 +40,53 @@ def menupedido():
           '1- Cardápio\n'
           '2- Fazer pedido\n'
           '3- Voltar ao menu principal\n'
-          '4- Sair')
+          '4- Sair\n')
+
+    resp = int(input('Como posso te ajudar?'))
+
+    if resp == 1:
+        menucardapio()
+
+    elif resp == 2:
+        print('Fazer pedido')
+
+    elif resp == 3:
+        menuprincipal()
+
+    elif resp == 4:
+        print('Obrigado, volte sempre!')
+
+    else:
+        print('Não entendi sua solicitação, vamos tentar novamente?')
+        menupedido()
+
+
+def menucardapio():
+    print('Cardápio')
+    print(cardapio.head())
 
 
 def menuinformacoes():
+    print(35 * '=')
     print('Escolha uma das opções abaixo:\n'
           '1- Quem somos nós\n'
           '2- Horário de Atendimento\n'
           '3- Área de entregas e valores'
           '4- Voltar ao menu principal\n'
-          '5- Sair')
+          '5- Sair\n')
+
+
+def quemsomosnos():
+    print('Quem somos nós')
+
+
+def horariodeatendimento():
+    print('Horário de Atendimento:')
+
+
+def areadeentrega():
+    print('Área de Entrega:')
+
 
 boasvindas()
 menuprincipal()
