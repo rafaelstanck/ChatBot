@@ -1,11 +1,21 @@
-CÓDIGO,LANCHE,INGREDIENTES,VALOR
-1,Queijo-Quente,Pão de hamburguer e queijo mussarela,"8,00"
-2,Misto-Quente,"Pão de hamburguer, queijo e presunto","9,00"
-3,X-Burguer,"Pão de hamburguer, hamburguer, queijo e presunto","12,00"
-4,X-Salada,"Pão de hamburguer, hamburguer, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","14,00"
-5,X-Egg,"Pão de hamburguer, hamburguer, ovo, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","15,00"
-6,X-Frango,"Pão de hamburguer, filé de frango, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","16,00"
-7,X-Calabresa,"Pão de hamburguer, hamburguer, calabresa, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","17,00"
-8,X-Bacon,"Pão de hamburguer, hamburguer, bacon, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","18,00"
-9,X-Coração,"Pão de hamburguer, coração de galinha, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","20,00"
-10,X-Tudo,"Pão de hamburguer, hamburguer, filé de frango, ovo, calabresa, bacon, queijo, presunto, tomate, alface, ervilha, milho e batata-palha","25,00"
+CÓDIGO,ITEM,INGREDIENTES,VALOR
+1,Queijo-Quente,Pão de hamburguer e queijo mussarela,8
+2,Misto-Quente,"Pão de hamburguer, queijo e presunto",9
+3,X-Burguer,"Pão de hamburguer, hamburguer, queijo e presunto",12
+4,X-Salada,"Pão de hamburguer, hamburguer, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",14
+5,X-Egg,"Pão de hamburguer, hamburguer, ovo, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",15
+6,X-Frango,"Pão de hamburguer, filé de frango, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",16
+7,X-Calabresa,"Pão de hamburguer, hamburguer, calabresa, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",17
+8,X-Bacon,"Pão de hamburguer, hamburguer, bacon, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",18
+9,X-Coração,"Pão de hamburguer, coração de galinha, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",20
+10,X-Tudo,"Pão de hamburguer, hamburguer, filé de frango, ovo, calabresa, bacon, queijo, presunto, tomate, alface, ervilha, milho e batata-palha",25
+11,Fritas Pequena,Porção Pequena de Fritas,10
+12,Fritas Média,Porção Média de Fritas,15
+13,Fritas Grande,Porção Grande de Fritas,20
+14,Fritas Especial,Fritas com Cheddar e Bacon,25
+15,Aipim Médio,Porção Média de Aipim,
+16,Aipim Grande,Porção Grande de Aipim,
+17,Polenta Média,Porção Média de Polenta,
+18,Polenta Grande,Porção Grande de Polenta,
+19,Calabresa Media,Porção Média de Calabresa,
+20,Calabresa Grande,Porção Grande de Calabresa,

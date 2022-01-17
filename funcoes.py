@@ -1,8 +1,7 @@
 """ Versão inicial do ChatBot"""
 import pandas as pd
 
-
-cardapio = pd.read_csv('./cardapio.csv')
+tabela = pd.read_excel("cardapio.xlsx")
 
 
 def boasvindas():
@@ -63,7 +62,6 @@ def menupedido():
 
 def menucardapio():
     print('Cardápio')
-    print(cardapio.head())
 
 
 def menuinformacoes():
@@ -88,5 +86,6 @@ def areadeentrega():
     print('Área de Entrega:')
 
 
-boasvindas()
-menuprincipal()
+# boasvindas()
+# menuprincipal()
+print(tabela['VALOR'])
