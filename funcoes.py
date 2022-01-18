@@ -4,14 +4,14 @@ import pandas as pd
 tabela = pd.read_excel("cardapio.xlsx")
 
 
-def boasvindas():
+def boasvindas():  # função para iniciar o robô de atendimento
     print(35 * '=')
     print('*** Bem vindo ao Batuta Lanches ***')
     print('Eu sou seu atendente virtual')
     menuprincipal()
 
 
-def menuprincipal():
+def menuprincipal():  # função com o menu principal
     print(35 * '=')
     print('Escolha uma das opções abaixo:\n'
           '1- Pedido\n'
@@ -20,21 +20,18 @@ def menuprincipal():
 
     resp = int(input('Como posso te ajudar?'))
 
-    if resp == 1:
+    if resp == 1:  # Condição para chamar o menu pedido
         menupedido()
-
-    elif resp == 2:
+    elif resp == 2:  # Condição para chamar o menu informações
         menuinformacoes()
-
-    elif resp == 3:
+    elif resp == 3:  # Condição para sair do atendimento
         print('Obrigado, volte sempre')
-
-    else:
+    else:  # condição para o caso de o usuário fazer uma solicitação inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menuprincipal()
 
 
-def menupedido():
+def menupedido():  # função do menu pedido
     print(35 * '=')
     print('Escolha uma das opções abaixo\n'
           '1- Cardápio\n'
@@ -44,19 +41,15 @@ def menupedido():
 
     resp = int(input('Como posso te ajudar?'))
 
-    if resp == 1:
+    if resp == 1:  # Condição para chamar o menu cardápio
         menucardapio()
-
-    elif resp == 2:
+    elif resp == 2:  # Condição para chamar o menu para fazer o pedido
         fazerpedido()
-
-    elif resp == 3:
+    elif resp == 3:  # Condição para voltar ao menu anterior
         menuprincipal()
-
-    elif resp == 4:
+    elif resp == 4:  # Condição para encerrar o atendimento
         print('Obrigado, volte sempre!')
-
-    else:
+    else:  # condição para o caso de o usuário fazer uma solicição inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menupedido()
 
@@ -75,22 +68,16 @@ def menucardapio():
 
     if resp == 1:
         print('Lanches')
-
     elif resp == 2:
         print('Porções')
-
     elif resp == 3:
         print('Bebidas')
-
     elif resp == 4:
         fazerpedido()
-
     elif resp == 5:
         menupedido()
-
     elif resp == 6:
         print('Obrigado, volte sempre!!!')
-
     else:
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menucardapio()
@@ -113,19 +100,14 @@ def menuinformacoes():
 
     if resp == 1:
         quemsomosnos()
-
     elif resp == 2:
         horariodeatendimento()
-
     elif resp == 3:
         areadeentrega()
-
     elif resp == 4:
         menuprincipal()
-
     elif resp == 5:
         print('Obrigado, volte sempre!!!')
-
     else:
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menuinformacoes()
