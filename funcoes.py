@@ -92,7 +92,7 @@ def menuinformacoes():
     print('Escolha uma das opções abaixo:\n'
           '1- Quem somos nós\n'
           '2- Horário de Atendimento\n'
-          '3- Área de entregas e valores'
+          '3- Área de entregas e valores\n'
           '4- Voltar ao menu principal\n'
           '5- Sair\n')
 
@@ -114,15 +114,71 @@ def menuinformacoes():
 
 
 def quemsomosnos():
-    print('Quem somos nós')
+    print(35 * '=')
+    print('*** BATUTA LANCHES ***\n'
+          'Somos um delivery ficticio para exemplificar o funcionamento do ChatBot\n')
+
+    while True:
+
+        print('Escolha uma das opções abaixo:\n'
+             '1- Voltar ao menu anterior\n'
+             '2- Sair\n')
+
+        resp = int(input('Como posso lhe ajudar?'))
+
+        if resp == 1:
+            menuprincipal()
+        elif resp == 2:
+            print('Obrigado, volte sempre!')
+            break
+        else:
+            print('Não entendi sua solicitação, vamos tentar novamente?')
 
 
 def horariodeatendimento():
-    print('Horário de Atendimento:')
+    print(35 * '=')
+    print('Horário de Atendimento:\n'
+          'Segunda a Domingo das 19h as 23h\n'
+          'Incluíndo feriados\n')
+
+    while True:
+
+        print('Escolha uma das opções abaixo:\n'
+             '1- Voltar ao menu anterior\n'
+             '2- Sair\n')
+
+        resp = int(input('Como posso lhe ajudar?'))
+
+        if resp == 1:
+            menuprincipal()
+        elif resp == 2:
+            print('Obrigado, volte sempre!')
+            break
+        else:
+            print('Não entendi sua solicitação, vamos tentar novamente?')
 
 
 def areadeentrega():
-    print('Área de Entrega:')
+    print(35 * '=')
+    print('Área de Entrega:\n'
+          'No momento estamos entregando apenas no centro.\n'
+          'Pedidos acima de R$ 30,00 a entrega é grátis.')
+
+    while True:
+
+        print('Escolha uma das opções abaixo:\n'
+             '1- Voltar ao menu anterior\n'
+             '2- Sair\n')
+
+        resp = int(input('Como posso lhe ajudar?'))
+
+        if resp == 1:
+            menuprincipal()
+        elif resp == 2:
+            print('Obrigado, volte sempre!')
+            break
+        else:
+            print('Não entendi sua solicitação, vamos tentar novamente?')
 
 
 boasvindas()
