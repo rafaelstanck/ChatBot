@@ -135,8 +135,8 @@ def quemsomosnos():
     while True:
 
         print('Escolha uma das opções abaixo:\n'
-             '1- Voltar ao menu anterior\n'
-             '2- Sair\n')
+              '1- Voltar ao menu anterior\n'
+              '2- Sair\n')
 
         resp = int(input('Como posso lhe ajudar?'))
 
@@ -149,7 +149,7 @@ def quemsomosnos():
             print('Não entendi sua solicitação, vamos tentar novamente?')
 
 
-def horariodeatendimento():
+def horariodeatendimento():  # função para o menu do horario de atendimento
     print(35 * '=')
     print('Horário de Atendimento:\n'
           'Segunda a Domingo das 19h as 23h\n'
@@ -160,8 +160,8 @@ def horariodeatendimento():
     while resp != 1 and resp != 2:
 
         print('Escolha uma das opções abaixo:\n'
-             '1- Voltar ao menu anterior\n'
-             '2- Sair\n')
+              '1- Voltar ao menu anterior\n'
+              '2- Sair\n')
 
         resp = int(input('Como posso lhe ajudar?'))
 
@@ -173,7 +173,7 @@ def horariodeatendimento():
             print('Não entendi sua solicitação, vamos tentar novamente?')
 
 
-def areadeentrega():
+def areadeentrega():  # função do menu da area de entrega
     print(35 * '=')
     print('Área de Entrega:\n'
           'No momento estamos entregando apenas no centro.\n'
@@ -184,8 +184,8 @@ def areadeentrega():
     while resp != 1 and resp != 2:
 
         print('Escolha uma das opções abaixo:\n'
-             '1- Voltar ao menu anterior\n'
-             '2- Sair\n')
+              '1- Voltar ao menu anterior\n'
+              '2- Sair\n')
 
         resp = int(input('Como posso lhe ajudar?'))
 
@@ -197,8 +197,9 @@ def areadeentrega():
             print('Não entendi sua solicitação, vamos tentar novamente?')
 
 
-def sairdoatendimento():
+def sairdoatendimento():  # função para encerrar o atendimento
     print('Obrigado por nos visitar.\n'
           '*** VOLTE SEMPRE ***')
 
-boasvindas()
+
+print(tabela)
