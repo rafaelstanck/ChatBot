@@ -1,7 +1,7 @@
 """ Versão inicial do ChatBot"""
 import pandas as pd
 
-tabela = pd.read_excel("cardapio.xlsx")
+tabela = pd.read_excel("cardapio.xlsx", index_col=0).to_dict()
 
 
 def boasvindas():  # função para iniciar o robô de atendimento
@@ -203,3 +203,6 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 
 print(tabela)
+
+for k, v in enumerate(tabela):
+    print(k, v)
