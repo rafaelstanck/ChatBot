@@ -25,7 +25,7 @@ def menuprincipal():  # função com o menu principal
     elif resp == 2:  # Condição para chamar o menu informações
         menuinformacoes()
     elif resp == 3:  # Condição para sair do atendimento
-        print('Obrigado, volte sempre')
+        sairdoatendimento()
     else:  # condição para o caso de o usuário fazer uma solicitação inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menuprincipal()
@@ -48,7 +48,7 @@ def menupedido():  # função do menu pedido
     elif resp == 3:  # Condição para voltar ao menu anterior
         menuprincipal()
     elif resp == 4:  # Condição para encerrar o atendimento
-        print('Obrigado, volte sempre!')
+        sairdoatendimento()
     else:  # condição para o caso de o usuário fazer uma solicição inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menupedido()
@@ -77,7 +77,7 @@ def menucardapio():
     elif resp == 5:
         menupedido()
     elif resp == 6:
-        print('Obrigado, volte sempre!!!')
+        sairdoatendimento()
     else:
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menucardapio()
@@ -107,7 +107,21 @@ def menuinformacoes():
     elif resp == 4:
         menuprincipal()
     elif resp == 5:
-        print('Obrigado, volte sempre!!!')
+        while True:
+
+            print('Escolha uma das opções abaixo:\n'
+                  '1- Voltar ao menu anterior\n'
+                  '2- Sair\n')
+
+            resp = int(input('Como posso lhe ajudar?'))
+
+            if resp == 1:
+                menuprincipal()
+            elif resp == 2:
+                sairdoatendimento()
+                break
+            else:
+                print('Não entendi sua solicitação, vamos tentar novamente?')
     else:
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menuinformacoes()
@@ -129,7 +143,7 @@ def quemsomosnos():
         if resp == 1:
             menuprincipal()
         elif resp == 2:
-            print('Obrigado, volte sempre!')
+            sairdoatendimento()
             break
         else:
             print('Não entendi sua solicitação, vamos tentar novamente?')
@@ -141,7 +155,9 @@ def horariodeatendimento():
           'Segunda a Domingo das 19h as 23h\n'
           'Incluíndo feriados\n')
 
-    while True:
+    resp = ''
+
+    while resp != 1 and resp != 2:
 
         print('Escolha uma das opções abaixo:\n'
              '1- Voltar ao menu anterior\n'
@@ -152,8 +168,7 @@ def horariodeatendimento():
         if resp == 1:
             menuprincipal()
         elif resp == 2:
-            print('Obrigado, volte sempre!')
-            break
+            sairdoatendimento()
         else:
             print('Não entendi sua solicitação, vamos tentar novamente?')
 
@@ -164,7 +179,9 @@ def areadeentrega():
           'No momento estamos entregando apenas no centro.\n'
           'Pedidos acima de R$ 30,00 a entrega é grátis.')
 
-    while True:
+    resp = ''
+
+    while resp != 1 and resp != 2:
 
         print('Escolha uma das opções abaixo:\n'
              '1- Voltar ao menu anterior\n'
@@ -175,10 +192,13 @@ def areadeentrega():
         if resp == 1:
             menuprincipal()
         elif resp == 2:
-            print('Obrigado, volte sempre!')
-            break
+            sairdoatendimento()
         else:
             print('Não entendi sua solicitação, vamos tentar novamente?')
 
+
+def sairdoatendimento():
+    print('Obrigado por nos visitar.\n'
+          '*** VOLTE SEMPRE ***')
 
 boasvindas()
