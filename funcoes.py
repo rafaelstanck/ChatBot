@@ -8,6 +8,7 @@ def boasvindas():
     print(35 * '=')
     print('*** Bem vindo ao Batuta Lanches ***')
     print('Eu sou seu atendente virtual')
+    menuprincipal()
 
 
 def menuprincipal():
@@ -47,7 +48,7 @@ def menupedido():
         menucardapio()
 
     elif resp == 2:
-        print('Fazer pedido')
+        fazerpedido()
 
     elif resp == 3:
         menuprincipal()
@@ -61,7 +62,42 @@ def menupedido():
 
 
 def menucardapio():
-    print('Cardápio')
+    print(35 * '=')
+    print('Qual cardápio você gostaria de ver:\n'
+          '1- Lanches\n'
+          '2- Porções\n'
+          '3- Bebidas\n'
+          '4- Fazer pedido\n'
+          '5- Voltar ao menu anterior\n'
+          '6- Sair\n')
+
+    resp = int(input('Como posso lhe ajudar?'))
+
+    if resp == 1:
+        print('Lanches')
+
+    elif resp == 2:
+        print('Porções')
+
+    elif resp == 3:
+        print('Bebidas')
+
+    elif resp == 4:
+        fazerpedido()
+
+    elif resp == 5:
+        menupedido()
+
+    elif resp == 6:
+        print('Obrigado, volte sempre!!!')
+
+    else:
+        print('Não entendi sua solicitação, vamos tentar novamente?')
+        menucardapio()
+
+
+def fazerpedido():
+    print('Fazer pedido')
 
 
 def menuinformacoes():
@@ -72,6 +108,27 @@ def menuinformacoes():
           '3- Área de entregas e valores'
           '4- Voltar ao menu principal\n'
           '5- Sair\n')
+
+    resp = int(input('Como posso te ajudar?'))
+
+    if resp == 1:
+        quemsomosnos()
+
+    elif resp == 2:
+        horariodeatendimento()
+
+    elif resp == 3:
+        areadeentrega()
+
+    elif resp == 4:
+        menuprincipal()
+
+    elif resp == 5:
+        print('Obrigado, volte sempre!!!')
+
+    else:
+        print('Não entendi sua solicitação, vamos tentar novamente?')
+        menuinformacoes()
 
 
 def quemsomosnos():
@@ -86,6 +143,4 @@ def areadeentrega():
     print('Área de Entrega:')
 
 
-# boasvindas()
-# menuprincipal()
-print(tabela['VALOR'])
+boasvindas()
