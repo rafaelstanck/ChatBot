@@ -67,7 +67,7 @@ def menucardapio():
     resp = int(input('Como posso lhe ajudar?'))
 
     if resp == 1:
-        print('*** CARDÁPIO DE LANCHES ***')
+        print('*** CARDÁPIO DE LANCHES ***\n')
 
         repetir = len(tabela['ITEM'])
         contador = 1
