@@ -67,7 +67,18 @@ def menucardapio():
     resp = int(input('Como posso lhe ajudar?'))
 
     if resp == 1:
-        print('Lanches')
+        print('*** CARDÁPIO DE LANCHES ***')
+
+        repetir = len(tabela['ITEM'])
+        contador = 1
+
+        while contador <= repetir:
+            print(f'{contador} - {tabela["ITEM"][contador]}')
+            print(f'({tabela["DESCRIÇÃO"][contador]})')
+            print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
+            contador += 1
+
+
     elif resp == 2:
         print('Porções')
     elif resp == 3:
@@ -201,12 +212,4 @@ def sairdoatendimento():  # função para encerrar o atendimento
     print('Obrigado por nos visitar.\n'
           '*** VOLTE SEMPRE ***')
 
-repetir = len(tabela['ITEM'])
-contador = 1
-
-while contador <= repetir:
-
-    print(f'{contador} - {tabela["ITEM"][contador]}')
-    print(f'({tabela["DESCRIÇÃO"][contador]})')
-    print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
-    contador += 1
+boasvindas()
