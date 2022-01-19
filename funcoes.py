@@ -201,8 +201,12 @@ def sairdoatendimento():  # função para encerrar o atendimento
     print('Obrigado por nos visitar.\n'
           '*** VOLTE SEMPRE ***')
 
+repetir = len(tabela['ITEM'])
+contador = 1
 
-print(tabela)
+while contador <= repetir:
 
-for k, v in enumerate(tabela):
-    print(k, v)
+    print(f'{contador} - {tabela["ITEM"][contador]}')
+    print(f'({tabela["DESCRIÇÃO"][contador]})')
+    print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
+    contador += 1
