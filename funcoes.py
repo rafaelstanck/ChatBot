@@ -78,7 +78,6 @@ def menucardapio():
             print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
             contador += 1
 
-
     elif resp == 2:
         print('Porções')
     elif resp == 3:
@@ -211,5 +210,6 @@ def areadeentrega():  # função do menu da area de entrega
 def sairdoatendimento():  # função para encerrar o atendimento
     print('Obrigado por nos visitar.\n'
           '*** VOLTE SEMPRE ***')
+
 
 boasvindas()
