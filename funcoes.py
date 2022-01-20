@@ -1,6 +1,7 @@
 """ Versão inicial do ChatBot"""
 import pandas as pd
 
+
 tabela = pd.read_excel("cardapio.xlsx", index_col=0).to_dict()
 
 
@@ -55,6 +56,7 @@ def menupedido():  # função do menu pedido
 
 
 def menucardapio():
+
     print(35 * '=')
     print('Qual cardápio você gostaria de ver:\n'
           '1- Lanches\n'
@@ -67,17 +69,7 @@ def menucardapio():
     resp = int(input('Como posso lhe ajudar?'))
 
     if resp == 1:
-        print('*** CARDÁPIO DE LANCHES ***\n')
-
-        repetir = len(tabela['ITEM'])
-        contador = 1
-
-        while contador <= repetir:
-            print(f'{contador} - {tabela["ITEM"][contador]}')
-            print(f'({tabela["DESCRIÇÃO"][contador]})')
-            print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
-            contador += 1
-
+        menucardapiolanches()
     elif resp == 2:
         print('Porções')
     elif resp == 3:
@@ -91,6 +83,29 @@ def menucardapio():
     else:
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menucardapio()
+
+
+def menucardapiolanches():
+
+    print(35 * '=')
+    print('*** CARDÁPIO DE LANCHES ***\n')
+
+    repetir = len(tabela['ITEM'])
+    contador = 1
+
+    while contador <= repetir:
+        print(f'{contador} - {tabela["ITEM"][contador]}')
+        print(f'({tabela["DESCRIÇÃO"][contador]})')
+        print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
+        contador += 1
+
+    print('Escolha uma das opçoes abaixo:\n'
+          '1- Cardapio\n'
+          '2- Fazer pedido\n'
+          '3- Voltar ao menu principal\n'
+          '4- Sair.\n')
+
+    resp = int(input('Como posso te ajudar?'))
 
 
 def fazerpedido():
