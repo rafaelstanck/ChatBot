@@ -99,13 +99,30 @@ def menucardapiolanches():
         print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
         contador += 1
 
-    print('Escolha uma das opçoes abaixo:\n'
-          '1- Cardapio\n'
-          '2- Fazer pedido\n'
-          '3- Voltar ao menu principal\n'
-          '4- Sair.\n')
+    while True:
 
-    resp = int(input('Como posso te ajudar?'))
+        print('Escolha uma das opçoes abaixo:\n'
+              '1- Cardapio\n'
+              '2- Fazer pedido\n'
+              '3- Voltar ao menu principal\n'
+              '4- Sair.\n')
+
+        resp = int(input('Como posso te ajudar?'))
+
+        if resp == 1:
+            menucardapio()
+            break
+        elif resp == 2:
+            menupedido()
+            break
+        elif resp == 3:
+            menuprincipal()
+            break
+        elif resp == 4:
+            sairdoatendimento()
+            break
+        else:
+            print('Nao entendi sua solicitaçao, vamos tentar novamente?')
 
 
 def fazerpedido():
