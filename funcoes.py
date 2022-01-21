@@ -2,8 +2,9 @@
 import pandas as pd
 
 
-tabela = pd.read_excel("cardapio.xlsx", index_col=0).to_dict()
-
+tabelalanches = pd.read_excel('cardapio.xlsx', index_col=0).to_dict()
+tabelaporcoes = pd.read_excel('cardapio.xlsx', sheet_name=1, index_col=0).to_dict()
+tabelabebidas = pd.read_excel('cardapio.xlsx', sheet_name=2, index_col=0).to_dict()
 
 def boasvindas():  # função para iniciar o robô de atendimento
     print(35 * '=')
@@ -71,9 +72,9 @@ def menucardapio():
     if resp == 1:
         menucardapiolanches()
     elif resp == 2:
-        print('Porções')
+        menucardapioporcoes()
     elif resp == 3:
-        print('Bebidas')
+        menucardapiobebidas()
     elif resp == 4:
         fazerpedido()
     elif resp == 5:
@@ -90,13 +91,13 @@ def menucardapiolanches():
     print(35 * '=')
     print('*** CARDÁPIO DE LANCHES ***\n')
 
-    repetir = len(tabela['ITEM'])
+    repetir = len(tabelalanches['ITEM'])
     contador = 1
 
     while contador <= repetir:
-        print(f'{contador} - {tabela["ITEM"][contador]}')
-        print(f'({tabela["DESCRIÇÃO"][contador]})')
-        print(f'R$ {tabela["VALOR"][contador]:.2f}\n')
+        print(f'{contador} - {tabelalanches["ITEM"][contador]}')
+        print(f'({tabelalanches["DESCRIÇÃO"][contador]})')
+        print(f'R$ {tabelalanches["VALOR"][contador]:.2f}\n')
         contador += 1
 
     while True:
@@ -123,6 +124,50 @@ def menucardapiolanches():
             break
         else:
             print('Nao entendi sua solicitaçao, vamos tentar novamente?')
+
+
+def menucardapioporcoes():
+
+    print(35 * '=')
+    print('*** CARDÁPIO DE PORÇÕES ***\n')
+
+    repetir = len(tabelaporcoes['ITEM']) + len(tabelalanches['ITEM'])
+    contador = 1 + len(tabelalanches['ITEM'])
+
+    while contador <= repetir:
+        print(f'{contador} - {tabelaporcoes["ITEM"][contador]}')
+        print(f'({tabelaporcoes["DESCRIÇÃO"][contador]})')
+        print(f'R$ {tabelaporcoes["VALOR"][contador]:.2f}\n')
+        contador += 1
+
+    while True:
+
+        print('Escolha uma das opçoes abaixo:\n'
+              '1- Cardapio\n'
+              '2- Fazer pedido\n'
+              '3- Voltar ao menu principal\n'
+              '4- Sair.\n')
+
+        resp = int(input('Como posso te ajudar?'))
+
+        if resp == 1:
+            menucardapio()
+            break
+        elif resp == 2:
+            menupedido()
+            break
+        elif resp == 3:
+            menuprincipal()
+            break
+        elif resp == 4:
+            sairdoatendimento()
+            break
+        else:
+            print('Nao entendi sua solicitaçao, vamos tentar novamente?')
+
+
+def menucardapiobebidas():
+    print('Bebidas')
 
 
 def fazerpedido():
