@@ -167,7 +167,43 @@ def menucardapioporcoes():
 
 
 def menucardapiobebidas():
-    print('Bebidas')
+
+    print(35 * '=')
+    print('*** CARDÁPIO DE BEBIDAS ***\n')
+
+    repetir = len(tabelabebidas['ITEM']) + len(tabelalanches['ITEM']) + len(tabelaporcoes['ITEM'])
+    contador = 1 + len(tabelabebidas['ITEM'])
+
+    while contador <= repetir:
+        print(f'{contador} - {tabelabebidas["ITEM"][contador]}')
+        print(f'({tabelabebidas["DESCRIÇÃO"][contador]})')
+        print(f'R$ {tabelabebidas["VALOR"][contador]:.2f}\n')
+        contador += 1
+
+    while True:
+
+        print('Escolha uma das opçoes abaixo:\n'
+              '1- Cardapio\n'
+              '2- Fazer pedido\n'
+              '3- Voltar ao menu principal\n'
+              '4- Sair.\n')
+
+        resp = int(input('Como posso te ajudar?'))
+
+        if resp == 1:
+            menucardapio()
+            break
+        elif resp == 2:
+            menupedido()
+            break
+        elif resp == 3:
+            menuprincipal()
+            break
+        elif resp == 4:
+            sairdoatendimento()
+            break
+        else:
+            print('Nao entendi sua solicitaçao, vamos tentar novamente?')
 
 
 def fazerpedido():
@@ -289,4 +325,6 @@ def sairdoatendimento():  # função para encerrar o atendimento
           '*** VOLTE SEMPRE ***')
 
 
-boasvindas()
+#boasvindas()
+
+print(len(tabelabebidas['ITEM']) + len(tabelalanches['ITEM']) + len(tabelaporcoes['ITEM']))
