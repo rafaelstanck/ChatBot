@@ -215,7 +215,12 @@ def fazerpedido():
     print('Ok, vou anotar seu pedido')
     pedido = int(input('Digite o código que está no cardápio:'))
 
-    print(tabelalanches['ITEM'][pedido])
+    contadorlanches = len(tabelalanches['ITEM'])
+
+    if pedido <= contadorlanches:
+        print(tabelalanches['ITEM'][pedido])
+    else:
+        print(pedido)
 
 
 def menuinformacoes():
