@@ -118,7 +118,7 @@ def menucardapiolanches():
             menucardapio()
             break
         elif resp == 2:
-            menupedido()
+            fazerpedido()
             break
         elif resp == 3:
             menuprincipal()
@@ -158,7 +158,7 @@ def menucardapioporcoes():
             menucardapio()
             break
         elif resp == 2:
-            menupedido()
+            fazerpedido()
             break
         elif resp == 3:
             menuprincipal()
@@ -198,7 +198,7 @@ def menucardapiobebidas():
             menucardapio()
             break
         elif resp == 2:
-            menupedido()
+            fazerpedido()
             break
         elif resp == 3:
             menuprincipal()
@@ -211,7 +211,11 @@ def menucardapiobebidas():
 
 
 def fazerpedido():
-    print('Fazer pedido')
+    print(35 * '=')
+    print('Ok, vou anotar seu pedido')
+    pedido = int(input('Digite o código que está no cardápio:'))
+
+    print(tabelalanches['ITEM'][pedido])
 
 
 def menuinformacoes():
