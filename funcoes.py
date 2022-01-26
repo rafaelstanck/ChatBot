@@ -176,7 +176,7 @@ def menucardapiobebidas():
     print('*** CARDÁPIO DE BEBIDAS ***\n')
 
     repetir = len(tabelabebidas['ITEM']) + len(tabelalanches['ITEM']) + len(tabelaporcoes['ITEM'])
-    contador = 1 + len(tabelabebidas['ITEM'])
+    contador = 1 + len(tabelaporcoes['ITEM']) + len(tabelalanches['ITEM'])
 
     while contador <= repetir:
         print(f'{contador} - {tabelabebidas["ITEM"][contador]}')
