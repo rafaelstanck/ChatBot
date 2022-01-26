@@ -215,12 +215,19 @@ def fazerpedido():
     print('Ok, vou anotar seu pedido')
     pedido = int(input('Digite o código que está no cardápio:'))
 
-    contadorlanches = len(tabelalanches['ITEM'])
+    contlanches = len(tabelalanches['ITEM'])
+    contporcoes = len(tabelaporcoes['ITEM'])
+    contbebidas = len(tabelabebidas['ITEM'])
 
-    if pedido <= contadorlanches:
+    if pedido <= contlanches:
         print(tabelalanches['ITEM'][pedido])
+    elif pedido > contlanches and pedido <= contlanches + contporcoes:
+        print(tabelaporcoes['ITEM'][pedido])
+    elif pedido > contlanches + contporcoes and pedido <= contlanches + contporcoes + contbebidas:
+        print(tabelabebidas['ITEM'][pedido])
     else:
-        print(pedido)
+        print('Esse item não tem no cardápio, tente outra opção.')
+        fazerpedido()
 
 
 def menuinformacoes():
