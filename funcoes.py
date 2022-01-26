@@ -213,21 +213,24 @@ def menucardapiobebidas():
 def fazerpedido():
     print(35 * '=')
     print('Ok, vou anotar seu pedido')
-    pedido = int(input('Digite o código que está no cardápio:'))
+    item = int(input('Digite o código que está no cardápio:'))
 
     contlanches = len(tabelalanches['ITEM'])
     contporcoes = len(tabelaporcoes['ITEM'])
     contbebidas = len(tabelabebidas['ITEM'])
 
-    if pedido <= contlanches:
-        print(tabelalanches['ITEM'][pedido])
-    elif contlanches < pedido <= contlanches + contporcoes:
-        print(tabelaporcoes['ITEM'][pedido])
-    elif contlanches + contporcoes < pedido <= contlanches + contporcoes + contbebidas:
-        print(f'{pedido}- {tabelabebidas["ITEM"][pedido]} R$ {tabelabebidas["VALOR"][pedido]:.2f}')
+    pedido = {}
+
+    if item <= contlanches:
+        print(f'Item: {item} - {tabelalanches["ITEM"][item]} R$ {tabelalanches["VALOR"][item]:.2f}')
+        obs = str(input('Gostaria de colocar alguma observação? (Ex.: sem tomate)'))
+    elif contlanches < item <= contlanches + contporcoes:
+        print(f'Item: {item} - {tabelaporcoes["ITEM"][item]} R$ {tabelaporcoes["VALOR"][item]:.2f}')
+    elif contlanches + contporcoes < item <= contlanches + contporcoes + contbebidas:
+        print(f'Item: {item} - {tabelabebidas["ITEM"][item]} R$ {tabelabebidas["VALOR"][item]:.2f}')
     else:
-        print('Esse item não tem no cardápio, tente outra opção.')
-        fazerpedido()
+        print('Ops, esse item não tem no cardápio.')
+        menupedido()
 
 
 def menuinformacoes():
