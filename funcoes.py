@@ -6,6 +6,7 @@ tabelalanches = pd.read_excel('cardapio.xlsx', index_col=0).to_dict()
 tabelaporcoes = pd.read_excel('cardapio.xlsx', sheet_name=1, index_col=0).to_dict()
 tabelabebidas = pd.read_excel('cardapio.xlsx', sheet_name=2, index_col=0).to_dict()
 
+
 def boasvindas():  # função para iniciar o robô de atendimento
     print(35 * '=')
     print('*** Bem vindo ao Batuta Lanches ***')
@@ -16,17 +17,20 @@ def boasvindas():  # função para iniciar o robô de atendimento
 def menuprincipal():  # função com o menu principal
     print(35 * '=')
     print('Escolha uma das opções abaixo:\n'
-          '1- Pedido\n'
-          '2- Informações\n'
-          '3- Sair\n')
+          '1- Cardápio\n'
+          '2- Pedido\n'
+          '3- Informações\n'
+          '4- Sair\n')
 
     resp = int(input('Como posso te ajudar?'))
 
     if resp == 1:  # Condição para chamar o menu pedido
-        menupedido()
+        menucardapio()
     elif resp == 2:  # Condição para chamar o menu informações
-        menuinformacoes()
+        menupedido()
     elif resp == 3:  # Condição para sair do atendimento
+        menuinformacoes()
+    elif resp == 4:
         sairdoatendimento()
     else:  # condição para o caso de o usuário fazer uma solicitação inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
@@ -325,6 +329,4 @@ def sairdoatendimento():  # função para encerrar o atendimento
           '*** VOLTE SEMPRE ***')
 
 
-#boasvindas()
-
-print(len(tabelabebidas['ITEM']) + len(tabelalanches['ITEM']) + len(tabelaporcoes['ITEM']))
+boasvindas()
