@@ -221,10 +221,10 @@ def fazerpedido():
 
     if pedido <= contlanches:
         print(tabelalanches['ITEM'][pedido])
-    elif pedido > contlanches and pedido <= contlanches + contporcoes:
+    elif contlanches < pedido <= contlanches + contporcoes:
         print(tabelaporcoes['ITEM'][pedido])
-    elif pedido > contlanches + contporcoes and pedido <= contlanches + contporcoes + contbebidas:
-        print(tabelabebidas['ITEM'][pedido])
+    elif contlanches + contporcoes < pedido <= contlanches + contporcoes + contbebidas:
+        print(f'{pedido}- {tabelabebidas["ITEM"][pedido]} R$ {tabelabebidas["VALOR"][pedido]:.2f}')
     else:
         print('Esse item não tem no cardápio, tente outra opção.')
         fazerpedido()
