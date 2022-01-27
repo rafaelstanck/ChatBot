@@ -9,6 +9,7 @@ import pandas as pd
 tabelalanches = pd.read_excel('cardapio.xlsx', sheet_name=0, index_col=0).to_dict()
 tabelaporcoes = pd.read_excel('cardapio.xlsx', sheet_name=1, index_col=0).to_dict()
 tabelabebidas = pd.read_excel('cardapio.xlsx', sheet_name=2, index_col=0).to_dict()
+pedido = {}
 
 
 def boasvindas():  # função para iniciar o robô de atendimento
@@ -217,21 +218,19 @@ def menucardapiobebidas():
 def fazerpedido():
     print(35 * '=')
     print('Ok, vou anotar seu pedido')
-    item = int(input('Digite o código que está no cardápio:'))
+    codigo = int(input('Digite o código que está no cardápio:'))
 
     contlanches = len(tabelalanches['ITEM'])
     contporcoes = len(tabelaporcoes['ITEM'])
     contbebidas = len(tabelabebidas['ITEM'])
 
-    pedido = {}
-
-    if item <= contlanches:
-        print(f'Item: {item} - {tabelalanches["ITEM"][item]} R$ {tabelalanches["VALOR"][item]:.2f}')
+    if codigo <= contlanches:
+        print(f'Item: {codigo} - {tabelalanches["ITEM"][codigo]} R$ {tabelalanches["VALOR"][codigo]:.2f}')
         valida = str(input('Está correto o item que você deseja pedir?(Sim / Não)')).lower()
 
         if valida == 'sim':
             obs = str(input('Alguma observação para esse lanche? (Ex.: Completo ou se prefere sem tomate)'))
-            pedido[item] = [tabelalanches["ITEM"][item], tabelalanches["VALOR"][item], obs]
+            pedido[len(pedido) + 1] = [tabelalanches["ITEM"][codigo], tabelalanches["VALOR"][codigo], obs]
             print('Lanche anotado!')
 
         elif valida == 'não' or valida == 'nao' or valida == 'naum':
@@ -243,11 +242,12 @@ def fazerpedido():
             fazerpedido()
         menupedido()
 
-    elif contlanches < item <= contlanches + contporcoes:
-        print(f'Item: {item} - {tabelaporcoes["ITEM"][item]} R$ {tabelaporcoes["VALOR"][item]:.2f}')
-        valida = str(input('Está correto o item que você deseja pedir? (Sim / Não')).lower()
+    elif contlanches < codigo <= contlanches + contporcoes:
+        print(f'Item: {codigo} - {tabelaporcoes["ITEM"][codigo]} R$ {tabelaporcoes["VALOR"][codigo]:.2f}')
+        valida = str(input('Está correto o item que você deseja pedir? (Sim / Não)')).lower()
 
         if valida == 'sim':
+            pedido[len(pedido) + 1] = [tabelaporcoes['ITEM'][codigo], tabelaporcoes['VALOR'][codigo]]
             print('Porção anotada')
 
         elif valida == 'não' or valida == 'nao' or valida == 'naum':
@@ -257,14 +257,13 @@ def fazerpedido():
             print('Não entendi sua resposta, vamos tentar novamente!')
             fazerpedido()
 
-    elif contlanches + contporcoes < item <= contlanches + contporcoes + contbebidas:
-        print(f'Item: {item} - {tabelabebidas["ITEM"][item]} R$ {tabelabebidas["VALOR"][item]:.2f}')
+    elif contlanches + contporcoes < codigo <= contlanches + contporcoes + contbebidas:
+        print(f'Item: {codigo} - {tabelabebidas["ITEM"][codigo]} R$ {tabelabebidas["VALOR"][codigo]:.2f}')
 
     else:
         print('Ops, esse item não tem no cardápio.')
         menupedido()
-
-    return pedido
+    menupedido()
 
 
 def menuinformacoes():
@@ -383,3 +382,5 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 
 boasvindas()
+print(pedido)
+print(len(pedido))
