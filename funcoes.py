@@ -1,4 +1,4 @@
-""" Versão inicial do ChatBot - testando versionamento no linux"""
+""" Versão inicial do ChatBot"""
 import pandas as pd
 
 
