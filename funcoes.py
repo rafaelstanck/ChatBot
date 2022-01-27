@@ -1,8 +1,12 @@
-""" Versão inicial do ChatBot"""
+"""
+Versão inicial do ChatBot
+Robô para atendimento de um delivery de lanchos.
+Modelo criado para aprendizagem e testes.
+"""
 import pandas as pd
 
 
-tabelalanches = pd.read_excel('cardapio.xlsx', index_col=0).to_dict()
+tabelalanches = pd.read_excel('cardapio.xlsx', sheet_name=0, index_col=0).to_dict()
 tabelaporcoes = pd.read_excel('cardapio.xlsx', sheet_name=1, index_col=0).to_dict()
 tabelabebidas = pd.read_excel('cardapio.xlsx', sheet_name=2, index_col=0).to_dict()
 
@@ -223,14 +227,44 @@ def fazerpedido():
 
     if item <= contlanches:
         print(f'Item: {item} - {tabelalanches["ITEM"][item]} R$ {tabelalanches["VALOR"][item]:.2f}')
-        obs = str(input('Gostaria de colocar alguma observação? (Ex.: sem tomate)'))
+        valida = str(input('Está correto o item que você deseja pedir?(Sim / Não)')).lower()
+
+        if valida == 'sim':
+            obs = str(input('Alguma observação para esse lanche? (Ex.: Completo ou se prefere sem tomate)'))
+            pedido[item] = [tabelalanches["ITEM"][item], tabelalanches["VALOR"][item], obs]
+            print('Lanche anotado!')
+
+        elif valida == 'não' or valida == 'nao' or valida == 'naum':
+            print('Tudo bem, não vou anotar este lanche.')
+            fazerpedido()
+
+        else:
+            print('Não entendi sua resposta, vamos tentar novamente!')
+            fazerpedido()
+        menupedido()
+
     elif contlanches < item <= contlanches + contporcoes:
         print(f'Item: {item} - {tabelaporcoes["ITEM"][item]} R$ {tabelaporcoes["VALOR"][item]:.2f}')
+        valida = str(input('Está correto o item que você deseja pedir? (Sim / Não')).lower()
+
+        if valida == 'sim':
+            print('Porção anotada')
+
+        elif valida == 'não' or valida == 'nao' or valida == 'naum':
+            print('Tudo bem, não vou anotar essa porção')
+
+        else:
+            print('Não entendi sua resposta, vamos tentar novamente!')
+            fazerpedido()
+
     elif contlanches + contporcoes < item <= contlanches + contporcoes + contbebidas:
         print(f'Item: {item} - {tabelabebidas["ITEM"][item]} R$ {tabelabebidas["VALOR"][item]:.2f}')
+
     else:
         print('Ops, esse item não tem no cardápio.')
         menupedido()
+
+    return pedido
 
 
 def menuinformacoes():
