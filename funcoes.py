@@ -383,4 +383,3 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 boasvindas()
 print(pedido)
-print(len(pedido))
