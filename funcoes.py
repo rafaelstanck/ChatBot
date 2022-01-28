@@ -244,7 +244,6 @@ def fazerpedido():
             print('Não entendi sua resposta, vamos tentar novamente!')
             menupedido()
 
-
     elif contlanches < codigo <= contlanches + contporcoes:  # condicional se o pedido for uma porção
         print(f'Item: {codigo} - {tabelaporcoes["ITEM"][codigo]} R$ {tabelaporcoes["VALOR"][codigo]:.2f}')
         valida = str(input('Está correto a porção que você deseja pedir? (Sim / Não)')).lower()
