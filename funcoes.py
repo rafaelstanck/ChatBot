@@ -228,12 +228,13 @@ def fazerpedido():
 
     if codigo <= contlanches:  # Condicional para o pedido de um lanche
         print(f'Item: {codigo} - {tabelalanches["ITEM"][codigo]} R$ {tabelalanches["VALOR"][codigo]:.2f}')
-        valida = str(input('Está correto o item que você deseja pedir?(Sim / Não)')).lower()
+        valida = str(input('Está correto o lanche que você deseja pedir?(Sim / Não)')).lower()
 
         if valida in sim:
             obs = str(input('Alguma observação para esse lanche? (Ex.: Completo ou se prefere sem tomate)'))
             pedido[len(pedido) + 1] = [tabelalanches["ITEM"][codigo], tabelalanches["VALOR"][codigo], obs]
             print('Lanche anotado!')
+            menupedido()
 
         elif valida in nao:
             print('Ops, não vou anotar este lanche.')
@@ -246,14 +247,15 @@ def fazerpedido():
 
     elif contlanches < codigo <= contlanches + contporcoes:  # condicional se o pedido for uma porção
         print(f'Item: {codigo} - {tabelaporcoes["ITEM"][codigo]} R$ {tabelaporcoes["VALOR"][codigo]:.2f}')
-        valida = str(input('Está correto o item que você deseja pedir? (Sim / Não)')).lower()
+        valida = str(input('Está correto a porção que você deseja pedir? (Sim / Não)')).lower()
 
-        if valida == 'sim':
+        if valida in sim:
             pedido[len(pedido) + 1] = [tabelaporcoes['ITEM'][codigo], tabelaporcoes['VALOR'][codigo]]
-            print('Porção anotada')
+            print('Porção anotada!')
+            menupedido()
 
-        elif valida == 'não' or valida == 'nao' or valida == 'naum':
-            print('Tudo bem, não vou anotar essa porção')
+        elif valida in nao:
+            print('Ops, não vou anotar essa porção')
 
         else:
             print('Não entendi sua resposta, vamos tentar novamente!')
@@ -261,6 +263,12 @@ def fazerpedido():
 
     elif contlanches + contporcoes < codigo <= contlanches + contporcoes + contbebidas:
         print(f'Item: {codigo} - {tabelabebidas["ITEM"][codigo]} R$ {tabelabebidas["VALOR"][codigo]:.2f}')
+        valida = str(input('Está correto a bebida que você deseja pedir?(Sim / Não)')).lower()
+
+        if valida in sim:
+            pedido[len(pedido) + 1] = [tabelabebidas['ITEM'][codigo], tabelabebidas['VALOR'][codigo]]
+            print('Bebida anotada!')
+            menupedido()
 
     else:
         print('Ops, esse item não tem no cardápio.')
