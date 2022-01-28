@@ -2,7 +2,6 @@
 Versão inicial do ChatBot
 Robô para atendimento de um delivery de lanchos.
 Modelo criado para aprendizagem e testes.
-teste
 """
 import pandas as pd
 
@@ -224,26 +223,28 @@ def fazerpedido():
     contlanches = len(tabelalanches['ITEM'])
     contporcoes = len(tabelaporcoes['ITEM'])
     contbebidas = len(tabelabebidas['ITEM'])
+    sim = ['sim', 'sin', 's', 'yes', 'y', 'si', 'sí']
+    nao = ['não', 'naum', 'nao', 'naun', 'no', 'n']
 
-    if codigo <= contlanches:
+    if codigo <= contlanches:  # Condicional para o pedido de um lanche
         print(f'Item: {codigo} - {tabelalanches["ITEM"][codigo]} R$ {tabelalanches["VALOR"][codigo]:.2f}')
         valida = str(input('Está correto o item que você deseja pedir?(Sim / Não)')).lower()
 
-        if valida == 'sim':
+        if valida in sim:
             obs = str(input('Alguma observação para esse lanche? (Ex.: Completo ou se prefere sem tomate)'))
             pedido[len(pedido) + 1] = [tabelalanches["ITEM"][codigo], tabelalanches["VALOR"][codigo], obs]
             print('Lanche anotado!')
 
-        elif valida == 'não' or valida == 'nao' or valida == 'naum':
-            print('Tudo bem, não vou anotar este lanche.')
+        elif valida in nao:
+            print('Ops, não vou anotar este lanche.')
             fazerpedido()
 
         else:
             print('Não entendi sua resposta, vamos tentar novamente!')
-            fazerpedido()
-        menupedido()
+            menupedido()
 
-    elif contlanches < codigo <= contlanches + contporcoes:
+
+    elif contlanches < codigo <= contlanches + contporcoes:  # condicional se o pedido for uma porção
         print(f'Item: {codigo} - {tabelaporcoes["ITEM"][codigo]} R$ {tabelaporcoes["VALOR"][codigo]:.2f}')
         valida = str(input('Está correto o item que você deseja pedir? (Sim / Não)')).lower()
 
@@ -264,7 +265,6 @@ def fazerpedido():
     else:
         print('Ops, esse item não tem no cardápio.')
         menupedido()
-    menupedido()
 
 
 def menuinformacoes():
