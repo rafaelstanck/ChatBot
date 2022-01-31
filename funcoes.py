@@ -6,10 +6,10 @@ Modelo criado para aprendizagem e testes.
 import pandas as pd
 
 
-tabelalanches = pd.read_excel('cardapio.xlsx', sheet_name=0, index_col=0).to_dict()
-tabelaporcoes = pd.read_excel('cardapio.xlsx', sheet_name=1, index_col=0).to_dict()
-tabelabebidas = pd.read_excel('cardapio.xlsx', sheet_name=2, index_col=0).to_dict()
-pedido = {}
+tabelalanches = pd.read_excel('cardapio.xlsx', sheet_name=0, index_col=0).to_dict()  # tabela dos lanches
+tabelaporcoes = pd.read_excel('cardapio.xlsx', sheet_name=1, index_col=0).to_dict()  # tabela das porções
+tabelabebidas = pd.read_excel('cardapio.xlsx', sheet_name=2, index_col=0).to_dict()  # tabela das bebidas
+pedido = {}  # pedido a ser realizado pelo cliente
 
 
 def boasvindas():  # função para iniciar o robô de atendimento
