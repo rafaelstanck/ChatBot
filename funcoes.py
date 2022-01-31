@@ -214,14 +214,16 @@ def fazerpedido():
 
             continua = ''
 
-            while continua not in sim and continua not in nao:
+            while continua not in sim or continua not in nao:
 
                 continua = str(input('Gostaria de acrescentar outras coisas no seu pedido?(Sim / Nao)')).lower()
 
                 if continua in sim:
                     fazerpedido()
+                    break
                 if continua in nao:
                     menuprincipal()
+                    break
                 print('Nao entendi sua resposta. \n')
 
         elif valida in nao:
@@ -239,7 +241,20 @@ def fazerpedido():
         if valida in sim:
             pedido[len(pedido) + 1] = [tabelaporcoes['ITEM'][codigo], tabelaporcoes['VALOR'][codigo]]
             print('Porção anotada!')
-            menuprincipal()
+
+            continua = ''
+
+            while continua not in sim or continua not in nao:
+
+                continua = str(input('Gostaria de acrescentar outras coisas no seu pedido?(Sim / Não)')).lower()
+
+                if continua in sim:
+                    fazerpedido()
+                    break
+                if continua in nao:
+                    menuprincipal()
+                    break
+                print('Não entendi sua resposta. \n')
 
         elif valida in nao:
             print('Ops, não vou anotar essa porção')
@@ -255,7 +270,20 @@ def fazerpedido():
         if valida in sim:
             pedido[len(pedido) + 1] = [tabelabebidas['ITEM'][codigo], tabelabebidas['VALOR'][codigo]]
             print('Bebida anotada!')
-            menuprincipal()
+
+            continua = ''
+
+            while continua not in sim or continua not in nao:
+
+                continua = str(input('Gostaria de acrescentar outras coisas no seu pedido?(Sim / Nao)')).lower()
+
+                if continua in sim:
+                    fazerpedido()
+                    break
+                if continua in nao:
+                    menuprincipal()
+                    break
+                print('Nao entendi sua resposta. \n')
 
     else:
         print('Ops, esse item não tem no cardápio.')
