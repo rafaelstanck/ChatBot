@@ -23,46 +23,23 @@ def menuprincipal():  # função com o menu principal
     print(35 * '=')
     print('Escolha uma das opções abaixo:\n'
           '1- Cardápio\n'
-          '2- Pedido\n'
+          '2- Fazer Pedido\n'
           '3- Informações\n'
           '4- Sair\n')
 
     resp = int(input('Como posso te ajudar?'))
 
-    if resp == 1:  # Condição para chamar o menu pedido
+    if resp == 1:  # Condição para o cliente ver o cardápio.
         menucardapio()
-    elif resp == 2:  # Condição para chamar o menu informações
-        menupedido()
-    elif resp == 3:  # Condição para sair do atendimento
+    elif resp == 2:  # Condição para o cliente fazer o pedido.
+        fazerpedido()
+    elif resp == 3:  # Condição para o cliente obter informações.
         menuinformacoes()
-    elif resp == 4:
+    elif resp == 4:  # Condição para o cliente sair do atendimento.
         sairdoatendimento()
     else:  # condição para o caso de o usuário fazer uma solicitação inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
         menuprincipal()
-
-
-def menupedido():  # função do menu pedido
-    print(35 * '=')
-    print('Escolha uma das opções abaixo\n'
-          '1- Cardápio\n'
-          '2- Fazer pedido\n'
-          '3- Voltar ao menu principal\n'
-          '4- Sair\n')
-
-    resp = int(input('Como posso te ajudar?'))
-
-    if resp == 1:  # Condição para chamar o menu cardápio
-        menucardapio()
-    elif resp == 2:  # Condição para chamar o menu para fazer o pedido
-        fazerpedido()
-    elif resp == 3:  # Condição para voltar ao menu anterior
-        menuprincipal()
-    elif resp == 4:  # Condição para encerrar o atendimento
-        sairdoatendimento()
-    else:  # condição para o caso de o usuário fazer uma solicição inválida
-        print('Não entendi sua solicitação, vamos tentar novamente?')
-        menupedido()
 
 
 def menucardapio():
@@ -87,7 +64,7 @@ def menucardapio():
     elif resp == 4:
         fazerpedido()
     elif resp == 5:
-        menupedido()
+        menuprincipal()
     elif resp == 6:
         sairdoatendimento()
     else:
@@ -234,7 +211,18 @@ def fazerpedido():
             obs = str(input('Alguma observação para esse lanche? (Ex.: Completo ou se prefere sem tomate)'))
             pedido[len(pedido) + 1] = [tabelalanches["ITEM"][codigo], tabelalanches["VALOR"][codigo], obs]
             print('Lanche anotado!')
-            menupedido()
+
+            continua = ''
+
+            while continua not in sim and continua not in nao:
+
+                continua = str(input('Gostaria de acrescentar outras coisas no seu pedido?(Sim / Nao)')).lower()
+
+                if continua in sim:
+                    fazerpedido()
+                if continua in nao:
+                    menuprincipal()
+                print('Nao entendi sua resposta. \n')
 
         elif valida in nao:
             print('Ops, não vou anotar este lanche.')
@@ -242,7 +230,7 @@ def fazerpedido():
 
         else:
             print('Não entendi sua resposta, vamos tentar novamente!')
-            menupedido()
+            menuprincipal()
 
     elif contlanches < codigo <= contlanches + contporcoes:  # condicional se o pedido for uma porção
         print(f'Item: {codigo} - {tabelaporcoes["ITEM"][codigo]} R$ {tabelaporcoes["VALOR"][codigo]:.2f}')
@@ -251,7 +239,7 @@ def fazerpedido():
         if valida in sim:
             pedido[len(pedido) + 1] = [tabelaporcoes['ITEM'][codigo], tabelaporcoes['VALOR'][codigo]]
             print('Porção anotada!')
-            menupedido()
+            menuprincipal()
 
         elif valida in nao:
             print('Ops, não vou anotar essa porção')
@@ -267,11 +255,11 @@ def fazerpedido():
         if valida in sim:
             pedido[len(pedido) + 1] = [tabelabebidas['ITEM'][codigo], tabelabebidas['VALOR'][codigo]]
             print('Bebida anotada!')
-            menupedido()
+            menuprincipal()
 
     else:
         print('Ops, esse item não tem no cardápio.')
-        menupedido()
+        menuprincipal()
 
 
 def menuinformacoes():
