@@ -507,4 +507,3 @@ def sairdoatendimento():  # função para encerrar o atendimento
 boasvindas()
 print('Dados do Pedido:')
 print(pedido)
-
