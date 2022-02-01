@@ -363,7 +363,6 @@ def fecharpedido():
             total += float(pedido[i][1])
         print(f'\nTotal do pedido: R$ {total:.2f}')
 
-        formas_de_pagamento = ['1- Dinheiro', '2- Cartao de Crédito/Débito', '3- Pix']
         print('Formas de pagamento disponível:\n'
               '1- Dinheiro\n'
               '2- Cartao de Crédito ou Débito\n'
@@ -373,7 +372,8 @@ def fecharpedido():
 
         if resp_pgto == 1:
             print('Dinheiro')
-            pedido['TROCO'] = int(input('Se precisar de troco informe o valor que sera dado ao entregador:'))
+            pedido['PAGAMENTO'] = ['TROCO', float(input('Se precisar de troco informe o valor que sera dado ao '
+                                                        'entregador:'))]
             print('Muito obrigado! É prazer atender você.')
         elif resp_pgto == 2:
             print('Pagamento com Cartao de Credito ou Debito')
@@ -505,4 +505,6 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 
 boasvindas()
+print('Dados do Pedido:')
 print(pedido)
+
