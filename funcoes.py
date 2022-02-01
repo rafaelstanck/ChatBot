@@ -335,7 +335,7 @@ def verpedido():
         opcao = int(input('Qual a opção desejada?'))
 
         if opcao == 1:
-            print('Fechar pedido')
+            fecharpedido()
         elif opcao == 2:
             print('Remover item do pedido')
         elif opcao == 3:
@@ -347,7 +347,46 @@ def verpedido():
 
 
 def fecharpedido():
+    print(35 * '=')
+    print('Fechando seu pedido:')
+    contador = 1
 
+    if len(pedido) >= 1:
+
+        print('Esse é o seu pedido:\n')
+
+        for i in pedido:
+            print(f'Item: {contador} - {pedido[i][0]} - R$ {pedido[i][1]:.2f} - Observaçao:{pedido[i][2]}')
+            contador += 1
+        total = float(0)
+        for i in pedido:
+            total += float(pedido[i][1])
+        print(f'\nTotal do pedido: R$ {total:.2f}')
+
+        formas_de_pagamento = ['1- Dinheiro', '2- Cartao de Crédito/Débito', '3- Pix']
+        print('Formas de pagamento disponível:\n'
+              '1- Dinheiro\n'
+              '2- Cartao de Crédito ou Débito\n'
+              '3- PIX')
+
+        resp_pgto = int(input('Qual forma de pagamento você prefere?'))
+
+        if resp_pgto == 1:
+            print('Dinheiro')
+            pedido['TROCO'] = int(input('Se precisar de troco informe o valor que sera dado ao entregador:'))
+            print('Muito obrigado! É prazer atender você.')
+        elif resp_pgto == 2:
+            print('Pagamento com Cartao de Credito ou Debito')
+            pedido['PAGAMENTO'] = 'Cartao de Credito ou Debito'
+            print('Muito obrigado! É prazer atender você.')
+        elif resp_pgto == 3:
+            print('Pagamento com PIX:\n'
+                  f'Faça uma transferencia no valor de R$ {total:.2f} para a chave (99) 98765-4321 e envie o'
+                  f' comprovante para este chat para liberar seu pedido')
+            pedido['PAGAMENTO'] = 'PIX'
+            print('Muito obrigado! É prazer atender você.')
+    else:
+        print('Vocẽ ainda não fez seu pedido!')
 
 
 def menuinformacoes():
@@ -466,3 +505,4 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 
 boasvindas()
+print(pedido)
