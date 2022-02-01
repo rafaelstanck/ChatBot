@@ -305,15 +305,45 @@ def fazerpedido():
 
 def verpedido():
     print(35 * '=')
-    print('Esse é o seu pedido:\n')
     contador = 1
-    for i in pedido:
-        print(f'Item: {contador} - {pedido[i][0]} - R$ {pedido[i][1]:.2f} - Observaçao:{pedido[i][2]}')
-        contador += 1
-    total = float(0)
-    for i in pedido:
-        total += float(pedido[i][1])
-    print(f'\nTotal do pedido: R$ {total:.2f}')
+
+    if len(pedido) >= 1:
+
+        print('Esse é o seu pedido:\n')
+
+        for i in pedido:
+            print(f'Item: {contador} - {pedido[i][0]} - R$ {pedido[i][1]:.2f} - Observaçao:{pedido[i][2]}')
+            contador += 1
+        total = float(0)
+        for i in pedido:
+            total += float(pedido[i][1])
+        print(f'\nTotal do pedido: R$ {total:.2f}')
+
+    else:
+        print('Vocẽ ainda não fez seu pedido!')
+
+    print('\nSelecione uma das opções abaixo:\n'
+          '1- Fechar Pedido\n'
+          '2- Remover Item do Pedido\n'
+          '3- Voltar ao menu principal\n'
+          '4- Sair do Atendimento.')
+
+    opcao = 5
+
+    while opcao > 4:
+
+        opcao = int(input('Qual a opção desejada?'))
+
+        if opcao == 1:
+            print('Fechar pedido')
+        elif opcao == 2:
+            print('Remover item do pedido')
+        elif opcao == 3:
+            menuprincipal()
+        elif opcao == 4:
+            sairdoatendimento()
+        else:
+            print('Não entendi, vamos tentar novamente')
 
     menuprincipal()
 
