@@ -345,7 +345,9 @@ def verpedido():
         else:
             print('Não entendi, vamos tentar novamente')
 
-    menuprincipal()
+
+def fecharpedido():
+
 
 
 def menuinformacoes():
