@@ -24,8 +24,9 @@ def menuprincipal():  # função com o menu principal
     print('Escolha uma das opções abaixo:\n'
           '1- Cardápio\n'
           '2- Fazer Pedido\n'
-          '3- Informações\n'
-          '4- Sair\n')
+          '3- Ver pedido\n'
+          '4- Informações\n'
+          '5- Sair\n')
 
     resp = int(input('Como posso te ajudar?'))
 
@@ -33,9 +34,11 @@ def menuprincipal():  # função com o menu principal
         menucardapio()
     elif resp == 2:  # Condição para o cliente fazer o pedido.
         fazerpedido()
-    elif resp == 3:  # Condição para o cliente obter informações.
+    elif resp == 3:  # Condição para o cliente ver o pedido.
+        verpedido()
+    elif resp == 4:  # Condição para o cliente obter informaçoes.
         menuinformacoes()
-    elif resp == 4:  # Condição para o cliente sair do atendimento.
+    elif resp == 5:
         sairdoatendimento()
     else:  # condição para o caso de o usuário fazer uma solicitação inválida
         print('Não entendi sua solicitação, vamos tentar novamente?')
@@ -239,7 +242,8 @@ def fazerpedido():
         valida = str(input('Está correto a porção que você deseja pedir? (Sim / Não)')).lower()
 
         if valida in sim:
-            pedido[len(pedido) + 1] = [tabelaporcoes['ITEM'][codigo], tabelaporcoes['VALOR'][codigo]]
+            obs = str(input('Alguma observação para essa porçao? (Ex.: Completo ou sem sal)'))
+            pedido[len(pedido) + 1] = [tabelaporcoes['ITEM'][codigo], tabelaporcoes['VALOR'][codigo], obs]
             print('Porção anotada!')
 
             continua = ''
@@ -258,6 +262,7 @@ def fazerpedido():
 
         elif valida in nao:
             print('Ops, não vou anotar essa porção')
+            fazerpedido()
 
         else:
             print('Não entendi sua resposta, vamos tentar novamente!')
@@ -268,7 +273,8 @@ def fazerpedido():
         valida = str(input('Está correto a bebida que você deseja pedir?(Sim / Não)')).lower()
 
         if valida in sim:
-            pedido[len(pedido) + 1] = [tabelabebidas['ITEM'][codigo], tabelabebidas['VALOR'][codigo]]
+            pedido[len(pedido) + 1] = [tabelabebidas['ITEM'][codigo], tabelabebidas['VALOR'][codigo],
+                                       tabelabebidas['DESCRIÇÃO'][codigo]]
             print('Bebida anotada!')
 
             continua = ''
@@ -285,9 +291,31 @@ def fazerpedido():
                     break
                 print('Nao entendi sua resposta. \n')
 
+        elif valida in nao:
+            print('Ops, não vou anotar essa bebida.')
+            fazerpedido()
+
+        else:
+            print('Não entendi sua resposta, vamos tentar novamente?')
+            fazerpedido()
     else:
         print('Ops, esse item não tem no cardápio.')
         menuprincipal()
+
+
+def verpedido():
+    print(35 * '=')
+    print('Esse é o seu pedido:\n')
+    contador = 1
+    for i in pedido:
+        print(f'Item: {contador} - {pedido[i][0]} - R$ {pedido[i][1]:.2f} - Observaçao:{pedido[i][2]}')
+        contador += 1
+    total = float(0)
+    for i in pedido:
+        total += float(pedido[i][1])
+    print(f'\nTotal do pedido: R$ {total:.2f}')
+
+    menuprincipal()
 
 
 def menuinformacoes():
@@ -406,4 +434,3 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 
 boasvindas()
-print(pedido)
