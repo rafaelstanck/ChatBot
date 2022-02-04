@@ -1,18 +1,12 @@
 from time import sleep
 
 
-def boasvindas():
+def iniciaatendimento():
     print(40 * '=')
     print(f'{"*** BEM VINDO AO BATUTA LANCHES ***":^40}')
     print(40 * '=')
     print('Eu sou ChatBot, seu atendente virtual!!!')
-
-
-def iniciaatendimento():
-    boasvindas()
-    n1 = menuprincipal()
-    v1 = validaopcao(n1)
-    opcoesmenuprincipal(v1)
+    menuprincipal()
 
 
 def menuprincipal():
@@ -25,10 +19,24 @@ def menuprincipal():
           '2- Fazer o Pedido\n'
           '3- Informações\n'
           '4- Sair')
-    return 4
+
+    opcao = validaopcao(4)  # O número 4 se refere a quantidade de opções do menu principal
+
+    if opcao == 1:
+        sleep(.3)
+        vercardapio()
+    elif opcao == 2:
+        sleep(.3)
+        fazerpedido()
+    elif opcao == 3:
+        sleep(.3)
+        informacoes()
+    else:
+        sleep(.3)
+        sair()
 
 
-def validaopcao(num):
+def validaopcao(num):  # Validação para corrigir erro de digitação do usuário.
     while True:
         sleep(.3)
         opcao = input('Digite a sua opção: ')
@@ -47,24 +55,8 @@ def validaopcao(num):
                   'Vamos tentar novamente... ', end='')
 
 
-def opcoesmenuprincipal(opcao):
-
-    if opcao == 1:
-        sleep(.3)
-        vercardapio()
-    elif opcao == 2:
-        sleep(.3)
-        fazerpedido()
-    elif opcao == 3:
-        sleep(.3)
-        informacoes()
-    else:
-        sleep(.3)
-        sair()
-
-
 def vercardapio():
-    print('Ver cardapio')
+    print('Ver cardápio')
 
 
 def fazerpedido():
@@ -72,7 +64,7 @@ def fazerpedido():
 
 
 def informacoes():
-    print('Informaçoes')
+    print('Informações')
 
 
 def sair():
