@@ -32,7 +32,9 @@ def opcaomenuprincipal():
                 sleep(.3)
                 print('Opção inválida!!!')
         except ValueError:
-            print('Você tem que digitar um número!!!')
+            print('Você tem que digitar um número!!!\n'
+                  'Por exemplo: se quer ver o cardápio digite: 1\n'
+                  'Vamos tentar novamente. ', end='')
 
     if opcao == 1:
         sleep(.3)
