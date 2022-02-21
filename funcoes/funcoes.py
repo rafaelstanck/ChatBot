@@ -56,7 +56,18 @@ def validaopcao(num):  # Validação para corrigir erro de digitação do usuár
 
 
 def vercardapio():
-    print('Ver cardápio')
+    print(40 * '-')
+    print(f'{"CARDÁPIO:":^40}')
+    print(40 * '-')
+    print('1- Lanches\n'
+          '2- Porções\n'
+          '3- Bebidas\n'
+          '4- Menu Principal\n'
+          '5- Sair do Atendimento')
+
+    opcao = validaopcao(5)
+
+    print(opcao)
 
 
 def fazerpedido():
