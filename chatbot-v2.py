@@ -1,3 +1,3 @@
-from funcoes.funcoes import *
+from funcoes.menus import *
 
 iniciaatendimento()
