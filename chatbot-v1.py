@@ -505,5 +505,9 @@ def sairdoatendimento():  # função para encerrar o atendimento
 
 
 boasvindas()
-print('Dados do Pedido:')
-print(pedido)
+
+if len(pedido) == 0:
+    print('Você não fez o pedido!')
+else:
+    print('Dados do Pedido:')
+    print(pedido)

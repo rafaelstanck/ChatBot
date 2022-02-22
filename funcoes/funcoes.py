@@ -4,6 +4,7 @@ from time import sleep
 def validaopcao(num):  # Validação para corrigir erro de digitação do usuário.
     while True:
         sleep(.3)
+        print('-' * 40)
         opcao = input('Digite a sua opção: ')
         try:
             if 1 <= int(opcao) <= num:
